@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.xtrider.ai/schemas/ai/retrieval-metadata.schema.json",
+  "title": "RetrievalMetadata",
+  "type": "object",
+  "required": ["strategy", "top_k"],
+  "additionalProperties": false,
+  "properties": {
+    "strategy": { "type": "string" },
+    "top_k": { "type": "integer", "minimum": 1, "maximum": 100 },
+    "reranking": { "type": "boolean" },
+    "filters": { "type": "object" }
+  }
+}

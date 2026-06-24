@@ -1,0 +1,11 @@
+domain: auth
+errors:
+  - code: AUTH_400_INVALID_CREDENTIALS
+    http_status: 400
+    message: Credenciales invalidas.
+  - code: AUTH_403_EMAIL_NOT_VERIFIED
+    http_status: 403
+    message: Email no verificado.
+  - code: AUTH_429_RATE_LIMITED
+    http_status: 429
+    message: Demasiados intentos.

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.xtrider.ai/schemas/events/contact-message-created.event.schema.json",
+  "title": "ContactMessageCreatedEvent",
+  "allOf": [
+    { "$ref": "domain-event.schema.json" },
+    {
+      "type": "object",
+      "properties": {
+        "event_type": { "const": "contact-message.created" },
+        "data": {
+          "type": "object",
+          "required": ["contact_message_id", "email", "created_at"],
+          "additionalProperties": false,
+          "properties": {
+            "contact_message_id": { "type": "integer", "minimum": 1 },
+            "email": { "type": "string", "format": "email" },
+            "company": { "type": ["string", "null"] },
+            "created_at": { "type": "string", "format": "date-time" }
+          }
+        }
+      }
+    }
+  ]
+}

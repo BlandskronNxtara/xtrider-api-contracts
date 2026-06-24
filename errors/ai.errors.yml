@@ -1,0 +1,11 @@
+domain: ai
+errors:
+  - code: AI_400_INVALID_PROMPT
+    http_status: 400
+    message: Prompt invalido.
+  - code: AI_422_POLICY_BLOCKED
+    http_status: 422
+    message: La solicitud fue bloqueada por politica de seguridad.
+  - code: AI_503_PROVIDER_UNAVAILABLE
+    http_status: 503
+    message: Proveedor IA no disponible.

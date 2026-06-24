@@ -1,0 +1,6 @@
+openapi: 3.1.0
+info:
+  title: Xtrider Operational Service API
+  version: 0.1.0
+  description: Placeholder contractual para Operational Service. Completar al estabilizar endpoints multi-schema.
+paths: {}

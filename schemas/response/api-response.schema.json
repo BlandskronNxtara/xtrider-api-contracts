@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.xtrider.ai/schemas/response/api-response.schema.json",
+  "title": "ApiResponse",
+  "type": "object",
+  "required": ["success", "status", "data", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "success": { "const": true },
+    "status": {
+      "type": "object",
+      "required": ["code", "message"],
+      "additionalProperties": false,
+      "properties": {
+        "code": { "type": "integer", "minimum": 200, "maximum": 299 },
+        "message": { "type": "string", "minLength": 1, "maxLength": 240 }
+      }
+    },
+    "data": { "type": ["object", "array", "string", "number", "boolean", "null"] },
+    "meta": { "$ref": "#/$defs/responseMeta" },
+    "links": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "$defs": {
+    "responseMeta": {
+      "type": "object",
+      "required": ["api_version", "service", "request_id", "correlation_id", "timestamp"],
+      "additionalProperties": true,
+      "properties": {
+        "api_version": { "type": "string", "pattern": "^v[0-9]+$" },
+        "service": { "type": "string", "minLength": 1 },
+        "environment": { "type": "string" },
+        "tenant_id": { "type": ["string", "null"] },
+        "user_id": { "type": ["string", "null"] },
+        "request_id": { "type": "string", "minLength": 1 },
+        "correlation_id": { "type": "string", "minLength": 1 },
+        "trace_id": { "type": ["string", "null"] },
+        "timestamp": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

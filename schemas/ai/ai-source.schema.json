@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.xtrider.ai/schemas/ai/ai-source.schema.json",
+  "title": "AISource",
+  "type": "object",
+  "required": ["source_id", "title", "score"],
+  "additionalProperties": false,
+  "properties": {
+    "source_id": { "type": "string" },
+    "document_id": { "type": ["string", "null"] },
+    "title": { "type": "string" },
+    "chunk_id": { "type": ["string", "null"] },
+    "score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "page": { "type": ["integer", "null"], "minimum": 1 },
+    "uri": { "type": ["string", "null"] }
+  }
+}

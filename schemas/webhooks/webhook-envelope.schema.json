@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.xtrider.ai/schemas/webhooks/webhook-envelope.schema.json",
+  "title": "WebhookEnvelope",
+  "type": "object",
+  "required": ["webhook_id", "source", "event_type", "event_version", "sent_at", "signature", "data"],
+  "additionalProperties": false,
+  "properties": {
+    "webhook_id": { "type": "string" },
+    "source": { "type": "string" },
+    "event_type": { "type": "string" },
+    "event_version": { "type": "string" },
+    "sent_at": { "type": "string", "format": "date-time" },
+    "signature": { "type": "string" },
+    "correlation_id": { "type": ["string", "null"] },
+    "data": { "type": "object" }
+  }
+}

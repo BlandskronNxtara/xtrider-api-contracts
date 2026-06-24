@@ -1,0 +1,11 @@
+domain: whatsapp
+errors:
+  - code: WHATSAPP_400_INVALID_WEBHOOK
+    http_status: 400
+    message: Webhook invalido.
+  - code: WHATSAPP_401_SIGNATURE_INVALID
+    http_status: 401
+    message: Firma de webhook invalida.
+  - code: WHATSAPP_502_PROVIDER_FAILED
+    http_status: 502
+    message: Proveedor WhatsApp no disponible.

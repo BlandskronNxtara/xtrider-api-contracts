@@ -1,0 +1,15 @@
+parameters:
+  CorrelationIdHeader:
+    name: X-Correlation-ID
+    in: header
+    required: false
+    schema:
+      type: string
+    description: Correlacion del flujo end-to-end entre servicios.
+  CsrfTokenHeader:
+    name: X-CSRFToken
+    in: header
+    required: true
+    schema:
+      type: string
+    description: Token CSRF obtenido desde el endpoint publico de CSRF.

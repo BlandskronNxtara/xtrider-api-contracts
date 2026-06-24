@@ -1,0 +1,10 @@
+errors:
+  validation_error:
+    http_status: 422
+    error_code: PLATFORM_422_VALIDATION_ERROR
+  csrf_failed:
+    http_status: 403
+    error_code: PLATFORM_403_CSRF_FAILED
+  rate_limited:
+    http_status: 429
+    error_code: PLATFORM_429_RATE_LIMITED

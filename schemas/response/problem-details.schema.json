@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.xtrider.ai/schemas/response/problem-details.schema.json",
+  "title": "ProblemDetails",
+  "type": "object",
+  "required": ["type", "title", "status", "detail", "instance"],
+  "additionalProperties": true,
+  "properties": {
+    "type": { "type": "string", "format": "uri" },
+    "title": { "type": "string" },
+    "status": { "type": "integer", "minimum": 400, "maximum": 599 },
+    "detail": { "type": "string" },
+    "instance": { "type": "string" }
+  }
+}

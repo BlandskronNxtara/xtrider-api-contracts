@@ -1,0 +1,11 @@
+domain: tenant
+errors:
+  - code: TENANT_403_ACCESS_DENIED
+    http_status: 403
+    message: Tenant no disponible o no autorizado.
+  - code: TENANT_404_NOT_FOUND
+    http_status: 404
+    message: Tenant no visible.
+  - code: TENANT_502_OPERATIONAL_DEPENDENCY_FAILED
+    http_status: 502
+    message: El servicio operacional no pudo completar la accion.

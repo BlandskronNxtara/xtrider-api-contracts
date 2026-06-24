@@ -1,0 +1,17 @@
+{
+  "conversation_id": "conv_01J8ZK9",
+  "message_id": "msg_01J8ZK9",
+  "role": "assistant",
+  "content": "Respuesta generada por el agente.",
+  "sources": [
+    {
+      "source_id": "src_01J8ZK9",
+      "document_id": "doc_123",
+      "title": "Contrato Cliente.pdf",
+      "chunk_id": "chunk_456",
+      "score": 0.91,
+      "page": 4,
+      "uri": null
+    }
+  ]
+}

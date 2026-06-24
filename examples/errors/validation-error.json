@@ -1,0 +1,23 @@
+{
+  "type": "https://api.xtriderai.com/problems/validation-error",
+  "title": "Validation Error",
+  "status": 422,
+  "detail": "The request body contains invalid fields.",
+  "instance": "/api/v1/contact/messages/",
+  "error_code": "PLATFORM_422_VALIDATION_ERROR",
+  "errors": [
+    {
+      "field": "email",
+      "code": "invalid_email",
+      "message": "Email format is invalid"
+    }
+  ],
+  "meta": {
+    "api_version": "v1",
+    "service": "auth-service",
+    "tenant_id": null,
+    "request_id": "req_01J8ZK9",
+    "correlation_id": "corr_01J8ZK9",
+    "timestamp": "2026-06-23T17:30:00Z"
+  }
+}

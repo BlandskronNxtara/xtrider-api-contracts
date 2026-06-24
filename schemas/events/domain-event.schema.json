@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.xtrider.ai/schemas/events/domain-event.schema.json",
+  "title": "DomainEvent",
+  "type": "object",
+  "required": ["event_id", "event_type", "event_version", "occurred_at", "producer", "correlation_id", "data"],
+  "additionalProperties": false,
+  "properties": {
+    "event_id": { "type": "string", "minLength": 1 },
+    "event_type": { "type": "string", "pattern": "^[a-z0-9]+(\\.[a-z0-9]+)+$" },
+    "event_version": { "type": "string", "pattern": "^v[0-9]+$" },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "producer": { "type": "string", "minLength": 1 },
+    "tenant_id": { "type": ["string", "null"] },
+    "correlation_id": { "type": "string", "minLength": 1 },
+    "trace_id": { "type": ["string", "null"] },
+    "data": { "type": "object" }
+  }
+}

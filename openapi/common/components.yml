@@ -1,0 +1,73 @@
+components:
+  schemas:
+    ApiStatus:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: integer
+          minimum: 100
+          maximum: 599
+        message:
+          type: string
+    ResponseMeta:
+      type: object
+      required: [api_version, service, request_id, correlation_id, timestamp]
+      properties:
+        api_version:
+          type: string
+          example: v1
+        service:
+          type: string
+          example: auth-service
+        environment:
+          type: string
+          example: local
+        tenant_id:
+          type: string
+          nullable: true
+        user_id:
+          type: string
+          nullable: true
+        request_id:
+          type: string
+        correlation_id:
+          type: string
+        trace_id:
+          type: string
+          nullable: true
+        timestamp:
+          type: string
+          format: date-time
+    ApiError:
+      type: object
+      required: [type, title, status, detail, instance, error_code, errors, meta]
+      properties:
+        type:
+          type: string
+          format: uri
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+        error_code:
+          type: string
+        errors:
+          type: array
+          items:
+            type: object
+            required: [code, message]
+            properties:
+              field:
+                type: string
+                nullable: true
+              code:
+                type: string
+              message:
+                type: string
+        meta:
+          $ref: "#/components/schemas/ResponseMeta"

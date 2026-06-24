@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.xtrider.ai/schemas/ai/ai-safety.schema.json",
+  "title": "AISafety",
+  "type": "object",
+  "required": ["filtered"],
+  "additionalProperties": false,
+  "properties": {
+    "filtered": { "type": "boolean" },
+    "policy_triggered": { "type": ["string", "null"] },
+    "risk_level": { "type": ["string", "null"], "enum": ["low", "medium", "high", null] }
+  }
+}

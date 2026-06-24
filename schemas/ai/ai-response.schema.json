@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.xtrider.ai/schemas/ai/ai-response.schema.json",
+  "title": "AIResponse",
+  "type": "object",
+  "required": ["conversation_id", "message_id", "role", "content", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "conversation_id": { "type": "string" },
+    "message_id": { "type": "string" },
+    "role": { "type": "string", "enum": ["assistant", "tool", "system"] },
+    "content": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "ai-source.schema.json" }
+    }
+  }
+}

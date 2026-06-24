@@ -1,0 +1,4 @@
+* @xtrider/platform-architecture
+schemas/** @xtrider/platform-architecture
+openapi/** @xtrider/platform-architecture
+errors/** @xtrider/platform-architecture

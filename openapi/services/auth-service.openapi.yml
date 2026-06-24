@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: Xtrider Auth Service API
+  version: 0.1.0
+  description: Contrato inicial para endpoints publicos y IAM de Xtrider Auth Service.
+servers:
+  - url: http://127.0.0.1:8000
+    description: Local
+paths:
+  /api/v1/contact/csrf/:
+    get:
+      tags: [Contact]
+      summary: Obtener token CSRF para formulario publico
+      operationId: getContactCsrf
+      responses:
+        "200":
+          description: Token CSRF emitido.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [success, status, data, meta]
+                properties:
+                  success:
+                    type: boolean
+                    const: true
+                  status:
+                    $ref: "../common/components.yml#/components/schemas/ApiStatus"
+                  data:
+                    type: object
+                    required: [csrfToken]
+                    properties:
+                      csrfToken:
+                        type: string
+                  meta:
+                    $ref: "../common/components.yml#/components/schemas/ResponseMeta"
+  /api/v1/contact/messages/:
+    post:
+      tags: [Contact]
+      summary: Crear mensaje de contacto publico
+      operationId: createContactMessage
+      parameters:
+        - $ref: "../common/parameters.yml#/parameters/CsrfTokenHeader"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactMessageCreate"
+      responses:
+        "201":
+          description: Mensaje creado.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [success, status, data, meta]
+                properties:
+                  success:
+                    type: boolean
+                    const: true
+                  status:
+                    $ref: "../common/components.yml#/components/schemas/ApiStatus"
+                  data:
+                    type: object
+                    required: [id, created_at]
+                    properties:
+                      id:
+                        type: integer
+                      created_at:
+                        type: string
+                        format: date-time
+                  meta:
+                    $ref: "../common/components.yml#/components/schemas/ResponseMeta"
+        "400":
+          $ref: "../common/responses.yml#/responses/BadRequest"
+        "403":
+          $ref: "../common/responses.yml#/responses/Forbidden"
+        "429":
+          $ref: "../common/responses.yml#/responses/TooManyRequests"
+components:
+  schemas:
+    ContactMessageCreate:
+      type: object
+      required: [name, email, message, accept_terms]
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        company:
+          type: string
+          maxLength: 120
+        phone:
+          type: string
+          maxLength: 32
+          pattern: "^[0-9+()\\-\\s]{0,32}$"
+        message:
+          type: string
+          minLength: 1
+          maxLength: 2000
+        accept_terms:
+          type: boolean
+          const: true

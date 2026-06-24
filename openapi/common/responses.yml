@@ -1,0 +1,19 @@
+responses:
+  BadRequest:
+    description: Request invalido.
+    content:
+      application/json:
+        schema:
+          $ref: "./components.yml#/components/schemas/ApiError"
+  Forbidden:
+    description: Acceso denegado o CSRF invalido.
+    content:
+      application/json:
+        schema:
+          $ref: "./components.yml#/components/schemas/ApiError"
+  TooManyRequests:
+    description: Rate limit excedido.
+    content:
+      application/json:
+        schema:
+          $ref: "./components.yml#/components/schemas/ApiError"

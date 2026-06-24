@@ -1,0 +1,6 @@
+openapi: 3.1.0
+info:
+  title: Xtrider Public API Bundle
+  version: 0.1.0
+  description: Bundle inicial de APIs publicas. Actualmente referencia contratos de contacto.
+paths: {}

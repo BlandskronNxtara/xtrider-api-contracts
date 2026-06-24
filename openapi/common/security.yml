@@ -1,0 +1,13 @@
+securitySchemes:
+  BearerAuth:
+    type: http
+    scheme: bearer
+    bearerFormat: JWT
+  CsrfCookie:
+    type: apiKey
+    in: cookie
+    name: csrftoken
+  CsrfHeader:
+    type: apiKey
+    in: header
+    name: X-CSRFToken

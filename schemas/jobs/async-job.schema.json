@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.xtrider.ai/schemas/jobs/async-job.schema.json",
+  "title": "AsyncJob",
+  "type": "object",
+  "required": ["job_id", "job_type", "status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "job_id": { "type": "string", "minLength": 1 },
+    "job_type": { "type": "string", "minLength": 1 },
+    "status": { "$ref": "job-status.schema.json" },
+    "progress": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "result": { "type": ["object", "array", "string", "number", "boolean", "null"] },
+    "error": { "type": ["object", "null"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": ["string", "null"], "format": "date-time" },
+    "expires_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

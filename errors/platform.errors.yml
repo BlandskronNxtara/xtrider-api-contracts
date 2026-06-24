@@ -1,0 +1,14 @@
+domain: platform
+errors:
+  - code: PLATFORM_400_BAD_REQUEST
+    http_status: 400
+    message: Request invalido.
+  - code: PLATFORM_403_CSRF_FAILED
+    http_status: 403
+    message: CSRF invalido o ausente.
+  - code: PLATFORM_422_VALIDATION_ERROR
+    http_status: 422
+    message: Validacion fallida.
+  - code: PLATFORM_500_INTERNAL_ERROR
+    http_status: 500
+    message: Error interno.
